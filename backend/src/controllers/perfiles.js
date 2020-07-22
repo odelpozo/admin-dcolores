@@ -5,7 +5,7 @@ const connectDB = require('../database/bd');
 
 connectDB();
 
-function verificaPerfil (req, res) {
+function obtienePerfil (req, res) {
     userMdl.find({user: req.body.user}, (err, user) => {
         if (err) return res.status(500).send('message', err)
         if(!user) return res.status(404).send('message', 'Usuario, no existe')
@@ -16,4 +16,4 @@ function verificaPerfil (req, res) {
 }
 
 
-module.exports = {verificaPerfil}
+module.exports = {obtienePerfil}
