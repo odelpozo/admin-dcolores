@@ -21,9 +21,6 @@ app.use(express.urlencoded({extended:false}));
 // routes
 app.use(require('./routes/routes'));
 
-
-app.use(express.static(path.join(__dirname,'dist/seeker')))
-
 app.listen(app.get('port'), () => {
     console.log('escuchando en puerto ' + app.get('port'));
 })

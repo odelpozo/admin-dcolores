@@ -1,0 +1,33 @@
+'use strict'
+const config = require('../config/enviroment');
+
+
+function accessAdmin (req, res, next) {
+
+    if (!req.headers.authorization){
+        return res.status(403).send({message: 'Indicar nievel de acceso asociado a su perfil'})
+    }
+
+    if(req.headers.authorization != config.PERFIL_ADM){
+        return res.status(403).send({message: `No tiene acceso con el perfil ${req.headers.authorization}`})
+    }
+ 
+    req.perfil = req.headers.authorization;
+    next();
+}
+
+function accessFree (req, res, next) {
+    if (!req.headers.authorization){
+        return res.status(403).send({message: 'Indicar nievel de acceso asociado a su perfil'})
+    }
+
+    if(req.headers.authorization != config.PERFIL_USR){
+        return res.status(403).send({message: `Tienes acceso con el perfil ${req.headers.authorization}`})
+    }
+
+    req.perfil = req.headers.authorization;
+    next();
+}
+
+
+module.exports = {accessAdmin,accessFree}
