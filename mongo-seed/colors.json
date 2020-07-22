@@ -1,0 +1,44 @@
+[{
+    "id": 1,
+    "name": "Sand Dollar",
+    "color": "#DECDBE",
+    "pantone": "13-1106",
+    "year": 2020
+},
+{
+    "id": 2,
+    "name": "Marron",
+    "color": "#d7c5b3",
+    "pantone": "13-1106",
+    "year": 2006
+},
+{
+    "id": 3,
+    "name": "Marron analogo",
+    "color": "#dabab0",
+    "pantone": "13-1107",
+    "year": 2008
+},
+{
+  "id": 1,
+  "name": "Sand Dollar",
+  "color": "#DECDBE",
+  "pantone": "13-1106",
+  "year": 2020
+},
+{
+  "id": 2,
+  "name": "Marron",
+  "color": "#d7c5b3",
+  "pantone": "13-1106",
+  "year": 2006
+},
+{
+  "id": 3,
+  "name": "Marron analogo",
+  "color": "#dabab0",
+  "pantone": "13-1107",
+  "year": 2008
+}
+
+]

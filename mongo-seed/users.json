@@ -1,0 +1,10 @@
+[
+{
+    "user" : "acceso_adm",
+    "perfil" : "administrador"
+},
+{
+  "user" : "acceso_usr",
+  "perfil" : "usuario"
+}
+]

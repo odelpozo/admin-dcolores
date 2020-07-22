@@ -1,0 +1,34 @@
+version: '3.8'  # specify docker-compose version
+services:    
+  mongodb: # name of the database service
+    image: mongo:3.2.6  
+    ports:
+      - "27017:27017"  
+  mongo_seed:
+    image: mongo:3.2.6 
+    links: 
+      - mongodb   
+    volumes: 
+      - ./mongo-seed:/mongo-seed 
+    command:
+      /mongo-seed/import.sh
+
+#   express: #name of the banckend service
+#     build: ./backend
+#     ports:
+#       - "7000:7000" 
+#     container_name: colors-srv
+#     links:
+#       - mongodb
+      
+#   angular: # name of the front service
+#     build: ./frontend 
+#     ports:
+#       - "4200:4200" 
+#     container_name: seeker-cli 
+
+
+
+
+ 
+ 
