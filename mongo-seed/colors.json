@@ -1,41 +1,69 @@
 [{
     "id": 1,
-    "name": "Sand Dollar",
+    "name": "Sand Dollar1",
     "color": "#DECDBE",
     "pantone": "13-1106",
     "year": 2020
 },
 {
     "id": 2,
-    "name": "Marron",
+    "name": "Marron2",
     "color": "#d7c5b3",
     "pantone": "13-1106",
     "year": 2006
 },
 {
     "id": 3,
-    "name": "Marron analogo",
+    "name": "Marron analogo3",
     "color": "#dabab0",
     "pantone": "13-1107",
     "year": 2008
 },
 {
-  "id": 1,
-  "name": "Sand Dollar",
+  "id": 4,
+  "name": "Sand Dollar4",
   "color": "#DECDBE",
   "pantone": "13-1106",
   "year": 2020
 },
 {
-  "id": 2,
-  "name": "Marron",
+  "id": 5,
+  "name": "Marron5",
   "color": "#d7c5b3",
   "pantone": "13-1106",
   "year": 2006
 },
 {
-  "id": 3,
-  "name": "Marron analogo",
+  "id": 6,
+  "name": "Marron analogo6",
+  "color": "#dabab0",
+  "pantone": "13-1107",
+  "year": 2008
+},
+{
+  "id": 7,
+  "name": "Sand Dollar7",
+  "color": "#DECDBE",
+  "pantone": "13-1106",
+  "year": 2020
+},
+{
+  "id": 8,
+  "name": "Marron8",
+  "color": "#d7c5b3",
+  "pantone": "13-1106",
+  "year": 2006
+},
+{
+  "id": 9,
+  "name": "Marron analogo9",
+  "color": "#dabab0",
+  "pantone": "13-1107",
+  "year": 2008
+},
+{
+  "id": 10,
+  "name": "Marron analogo10",
   "color": "#dabab0",
   "pantone": "13-1107",
   "year": 2008
