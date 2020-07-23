@@ -1,0 +1,228 @@
+<div  style="height: 25px; background-color:#ffffff;">
+    <div class="progress" style="height: 20px;background-color:#ffffff;">
+        <div  style="height: 25px;width: 100%; background-color:#d4edda;" *ngIf="this.mensajeMostrar">
+                <!-- <strong>&nbsp;{{mensajeValidacion}}.</strong> -->
+        </div>
+        <div  style="height: 25px;width: 100%; background-color: #f8d7da;" *ngIf="this.mensajeMostrarErr">
+                <!-- <strong>&nbsp;{{mensajeValidacion}}.</strong> -->
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+
+  <div class="col-md-12">
+ 
+        <span class="btn-group pull-right"> 
+            <button   *ngIf="!this.showpanel" (click)="nuevoColor()" class="btn btn-info">Nuevo</button>
+        </span>
+  
+      <div class="card">
+     
+
+
+          <div class="card-body">  
+  
+                       
+ 
+              <div class="table-responsive row" *ngIf="!this.showpanel"> 
+                <!-- | slice:0:2 -->
+                <div class="col-sm" *ngFor="let item of colores  | paginate : {itemsPerPage: 6, currentPage: pagAct}"> 
+                    <div class="card border-success mb-3" style="max-width: 18rem;"> 
+                        <div class="button-group pull-left"> 
+                            <button  class="btn btn-info" (click)="editaColor(item.id)">E</button>
+                            <button class="btn btn-info" (click)="confirmaBorrar(content,item.id)">X</button>
+                        </div>
+                        <div class="card-header  bg-transparent border-success">2006</div>
+                        <div class="card-body  text-center">
+                          <p class="card-title">sand dollar</p>
+                          <h5 class="card-text">#DECDBE</h5>
+                        </div>
+                        <div class="card-footer card text-right bg-transparent border-success">13-1106</div>
+                      </div>
+
+                </div>
+                <pagination-controls (pageChange)="pagAct = $event" ></pagination-controls>
+              </div>
+
+               <ng-template  #content let-c="close" let-d="dismiss">
+
+             
+                <div class="modal-body">
+                        <h4 class="modal-title">Confirma eliminar el registro</h4>
+                </div>
+                <div class="modal-footer">  
+                    <button type="button" class="btn btn-sm btn-info" (click)="c('SI')">Si</button>
+                    <button type="button" class="btn btn-sm btn-secondary" (click)="c('NO')">No</button>
+                </div>
+            </ng-template> 
+              
+
+
+  
+               
+              <form *ngIf="this.showpanel">
+                        <h3 class="card-title">
+                                <div class="button-group pull-right">
+                                    <button  (click)="grabaColor()"  class="btn btn-info">Grabar</button>
+                                    <button type="button" (click)="cancela()"  class="btn btn-info">Cancelar</button>
+                                </div>
+                        </h3>
+
+                    <!-- <div class="card-body"> -->
+                        <!--DATOS CLIENTE-->
+
+                        <div class="row">
+                                <div class="col-lg-12">
+                                  <h5>Datos del Usuario</h5>  
+                                   <!--    <input type="text" formControlName="idsimulacion" class="form-control form-control-sm"/> -->
+                                    <div class="row p-t-12">
+    
+                                        <div class="col-md-2">
+                                            <!-- <div class="form-group"> -->
+                                                <small class="form-control-feedback">Rut</small>
+                                                <input Rut type="text" (blur)="validaExisteUsuario()"   class="form-control form-control-sm"
+                                                    [ngClass]="{ 'is-invalid': submitted && frm.rut.errors }" />
+                                                <div *ngIf="submitted && frm.rut.errors" class="invalid-feedback"> 
+                                                </div>
+        
+                                            <!-- </div> -->
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                               <!--    <input type="text" formControlName="idsimulacion" class="form-control form-control-sm"/> -->
+                                <div class="row p-t-12">
+
+                                  
+    
+                                    <div class="col-md-3">
+                                        <!-- <div class="form-group"> -->
+                                            <small class="form-control-feedback">Nombre</small>
+                                            <!-- <input  type="text" formControlName="nombre"  class="form-control form-control-sm"
+                                                [ngClass]="{ 'is-invalid': submitted && frm.nombre.errors }"   />
+                                            <div *ngIf="submitted && frm.nombre.errors" class="invalid-feedback"> 
+                                            </div> -->
+                                        <!-- </div> -->
+                                    </div>
+    
+                                    <div class="col-md-3">
+                                        <!-- <div class="form-group"> -->
+                                            <small class="form-control-feedback">Apellido Paterno</small>
+                                             "  />
+                                            <div *ngIf="submitted && frm.apellido_paterno.errors" class="invalid-feedback"> 
+                                            </div>
+                                        <!-- </div> -->
+                                    </div>
+    
+                                    <div class="col-md-3">
+                                        <!-- <div class="form-group"> -->
+                                            <small class="form-control-feedback"> Apellido Materno</small>
+                                          
+                                            <div *ngIf="submitted && frm.apellido_materno.errors" class="invalid-feedback"> 
+                                            </div>
+                                        <!-- </div> -->
+                                    </div>   
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                                <div class="col-lg-12">
+                                   <!--  <h5>Datos del Cliente</h5>  
+                                    <input type="text" formControlName="idsimulacion" class="form-control form-control-sm"/> -->
+                                    <div class="row p-t-10">
+    
+                                        <div class="col-md-3">
+                                            <!-- <div class="form-group"> -->
+                                                <small class="form-control-feedback">Usuario</small>
+                                   
+                                                <div *ngIf="submitted && frm.usuario.errors" class="invalid-feedback">
+                                                 
+                                                </div>
+                                            <!-- </div> -->
+                                        </div> 
+
+                                        <div class="col-md-2">
+                                            <!-- <div class="form-group"> -->
+                                                <small class="form-control-feedback">Clave</small>
+                                                <div class="input-group input-group-sm mb-3 ">
+                                     
+                                                    <div *ngIf="submitted && frm.clave.errors" class="invalid-feedback"></div>
+                                                </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                        </div>
+
+
+                        <div class="row">
+                                <div class="col-lg-12"> 
+                                   <!--    <input type="text" formControlName="idsimulacion" class="form-control form-control-sm"/> -->
+                                    <div class="row p-t-12">
+    
+                                            <div class="col-md-3">
+      
+                                                    <small class="form-control-feedback">Email</small>
+                   
+                                                    <div *ngIf="submitted && frm.correo.errors" class="invalid-feedback"> </div>
+                                                 
+                                            </div>  
+
+                                    </div> 
+                                </div>
+
+                            </div>
+ 
+
+                        <div class="row">
+                                <div class="col-lg-12">
+                           
+    
+                                    <div class="row p-t-10">
+    
+                                        <div class="col-md-3">
+                                                    <small class="form-control-feedback">Perfil</small>
+                                                    <div class="input-group input-group-sm mb-3 ">
+                                                 
+                                                    &nbsp;<button class="btn btn-outline-secondary" (click)="open2(content)" type="button">Perfiles <i class="fa fa-id-card-o"></i></button> 
+                                                    <div *ngIf="submitted && frm.idPerfil.errors" class="invalid-feedback"> </div> 
+                                                    </div>
+                                            </div>                                     
+                                      </div>          
+                                </div>
+                            </div>
+
+
+                            <ng-template  #content let-c="close" let-d="dismiss">
+
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Prefiles</h4>
+                                    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                         
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" (click)="c('Close click')">Cerrar</button>
+                                </div>
+                            </ng-template>
+
+                        <hr>
+ 
+                       
+
+            </form>
+              
+
+          </div>
+      </div>
+  </div>
+ 
+</div>
