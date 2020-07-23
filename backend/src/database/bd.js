@@ -19,7 +19,6 @@ mongoose.connect(uri, {
 
 mongoose.connection.once('open',() => {
     console.log('conectado a MongoDB');
-
 }).on('error',(error) => {
     console.log('Error al conectamrme al MongoDB', JSON.stringify(error,null, 2));
     process.exit();

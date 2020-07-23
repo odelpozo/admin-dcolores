@@ -1,17 +1,53 @@
 'use stric'
  
  const Color = require('../models/color');
- const connectDB = require('../database/bd');
+ var EasyXml = require('easyxml');
 
- connectDB();
+ var serializer = new EasyXml({
+    singularize: true,
+    rootElement: 'response',
+    dateFormat: 'ISO',
+    manifest: true
+});
+ // const connectDB = require('../database/bd');
+ 
 
- function getColors (req,res) {
-    Color.find({},(err, colores) => {
-        if (err) return  res.status(500).send({message: `Error al obtener colores: ${err}`});
-        if (!colores) return res.status(404).send({message: "No existen colores "});
-        res.status(200).send({colores})
-    })
- }
+ // connectDB();
+
+//  function getColors (req,res) {
+//     Color.find({},(err, colores) => {
+//         if (err) return  res.status(500).send({message: `Error al obtener colores: ${err}`});
+//         if (!colores) return res.status(404).send({message: "No existen colores "});
+//         res.status(200).send({colores})
+//     })
+//  }
+
+function getColors (req, res, next) {
+    console.log(req.params)
+    let cantPag = 6;
+    let pagina = req.params.pag || 1;
+
+    Color.find({})
+        .skip((cantPag * pagina) - cantPag )
+        .limit(cantPag)
+        .exec((err, colores) => {
+            Color.count((err, count) => {
+                if (err) return next(err);
+                    if ((req.accepts('json'))){
+                        res.status(200).send({
+                            colores,
+                            pagActual: pagina,
+                            paginas: Math.ceil(count / cantPag),
+                            total : count
+                        })
+                    } else if (req.accepts('application/xml')) {
+                        res.header('Content-Type', 'text/xml');
+                        var xml = serializer.render(colores);
+                        res.send(xml);
+                    }
+            })
+        })
+}
 
 
 

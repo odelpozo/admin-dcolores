@@ -14,9 +14,9 @@ api.get('/', (req, res) => {
 
 api.post('/api/acceso',  perfiles.obtienePerfil)
  
-api.get('/api/colores', acceso.usuario, ColorCtrl.getColors)
+api.get('/api/colores/:pag?*',  ColorCtrl.getColors) // acceso.usuario,
 
-api.get('/api/colores/:id', acceso.usuario, ColorCtrl.getColor)
+api.get('/api/color/:id', acceso.usuario, ColorCtrl.getColor)
 
 api.delete('/api/colores/:id', acceso.administrador, ColorCtrl.deleteColor)
 

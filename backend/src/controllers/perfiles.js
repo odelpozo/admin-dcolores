@@ -1,9 +1,9 @@
 'use strict'
 
 const userMdl = require('../models/user');
-const connectDB = require('../database/bd');
+// const connectDB = require('../database/bd');
 
-connectDB();
+// connectDB();
 
 function obtienePerfil (req, res) {
     userMdl.find({user: req.body.user}, (err, user) => {

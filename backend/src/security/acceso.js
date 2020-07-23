@@ -18,12 +18,13 @@ function administrador (req, res, next) {
 }
 
 function usuario (req, res, next) {
+
     if (!req.headers.authorization){
         return res.status(403).send({message: 'Indicar nievel de acceso asociado a su perfil'})
     }
 
-    if(req.headers.authorization != config.PERFIL_USR){
-        return res.status(403).send({message: `Tienes acceso con el perfil ${req.headers.authorization}`})
+    if(req.headers.authorization != config.PERFIL_USR && req.headers.authorization != config.PERFIL_ADM){
+        return res.status(403).send({message: `Tienes acceso con el perfil  ${req.headers.authorization}`})
     }
 
     req.perfil = req.headers.authorization;
