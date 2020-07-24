@@ -23,13 +23,12 @@
 //  }
 
 function getColors (req, res, next) {
-    console.log(req.params)
-    let cantPag = 6;
+    let itemsPag = 100;
     let pagina = req.params.pag || 1;
 
     Color.find({})
-        .skip((cantPag * pagina) - cantPag )
-        .limit(cantPag)
+        .skip((itemsPag * pagina) - itemsPag )
+        .limit(itemsPag)
         .exec((err, colores) => {
             Color.count((err, count) => {
                 if (err) return next(err);
@@ -37,7 +36,7 @@ function getColors (req, res, next) {
                         res.status(200).send({
                             colores,
                             pagActual: pagina,
-                            paginas: Math.ceil(count / cantPag),
+                            paginas: Math.ceil(count / itemsPag),
                             total : count
                         })
                     } else if (req.accepts('application/xml')) {
@@ -79,7 +78,7 @@ function createColor (req, res) {
 
 
 function updateColor (req,res) {
- Color.findByIdAndUpdate(req.params.id, req.body, (err, colorUpdate) => {
+ Color.findByIdAndUpdate(req.body._id, req.body, (err, colorUpdate) => {
     if (err) return  res.status(500).send({message: `Error al actualizar color: ${err}`});
     res.status(200).send({colorUpdate})
  })
@@ -88,10 +87,10 @@ function updateColor (req,res) {
 
 
 
-function deleteColor (rerq, res) {
+function deleteColor (req, res) {
     Color.findById(req.params.id,(err, color) => {
+    console.log('color',color)
     if (err) return  res.status(500).send({message: `Error al borrar color: ${err}`});
-
     color.remove(err => {
         if (err) return  res.status(500).send({message: `Error al borrar color: ${err}`});
     })
