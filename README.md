@@ -1,14 +1,17 @@
 # ADMIN-COLORES
 API con operaciones CRUD, que permite administrar los datos de colores con 2 perfiles 
- 1. Administrador
+ 1. Administrador ()
     - Acceso a los metoos de POST, UPDATe y DELETE
  2. Usuario
     - Acceso a los metoos de GET
 
+Los usuarios no tienen contraseña:
+- acceso_adm:con perfil de administrador, acceso a operaciones POST, PUT , DELETE
+- acceso_usr: con perfil de usuario, acceso a operaciones GET
+
 
 La API valida los permisos SIMULANDO la existencia de un tocken, el cual en su hash 
-cotiene el peril del usuario logueado.
-
+deberia contener el peril del usuario logueado.
 En esta actuvidad no se genera un token, pero si se valida segun la informacion contenida en el HEADER de la peticion.
 
 # TECNOLOGIAS
