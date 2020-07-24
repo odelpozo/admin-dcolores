@@ -33,3 +33,8 @@ Esta documentacion es "referencial" para facilitar su lectura, se puede abrirl e
 Para desarrollar o probar la solucion se debe modificar la url  y debe ser ```localhost:port```, en modo ejecucion la url debe ser ```mongodb:port``` en el backend archivo ```/config/enviroment.js```
 
 
+
+# CODIGO FUENTE
+https://github.com/odelpozo/admin-colores.git
+
+
