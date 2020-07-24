@@ -13,19 +13,19 @@ services:
     command:
       /mongo-seed/import.sh
 
-#   express: #name of the banckend service
-#     build: ./backend
-#     ports:
-#       - "7000:7000" 
-#     container_name: colors-srv
-#     links:
-#       - mongodb
+  express: #name of the banckend service
+    build: ./backend
+    ports:
+      - "7000:7000" 
+    container_name: colors-srv
+    links:
+      - mongodb
       
-#   angular: # name of the front service
-#     build: ./frontend 
-#     ports:
-#       - "4200:4200" 
-#     container_name: seeker-cli 
+  angular: # name of the front service
+    build: ./frontend 
+    ports:
+      - "4200:4200" 
+    container_name: colors-cli 
 
 
 
