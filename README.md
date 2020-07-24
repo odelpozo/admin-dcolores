@@ -41,3 +41,12 @@ Para desarrollar o probar la solucion se debe modificar la url  y debe ser ```lo
 https://github.com/odelpozo/admin-colores.git
 
 
+# ESTRUCTURA GENERAL DEL PROYECTO
+```
+-- backend
+-- frontend
+-- mogo-seed
+api.yml
+docker-compose.yml
+readme.md
+```
